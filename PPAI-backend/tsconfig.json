@@ -1,0 +1,11 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "strict": true,
+    "module": "ES2022",
+    "target": "ES2022",
+    "outDir": "./build/",
+    "types": []
+  }
+}
