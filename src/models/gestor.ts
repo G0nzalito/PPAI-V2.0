@@ -1,3 +1,4 @@
+//@ts-nocheck
 import PantallaAdministradorActualizacionBonVino from './PantallaAdministradorActualizacionBonVino.js'
 import Bodega from './bodega.js'
 import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js'
@@ -64,6 +65,7 @@ export default class Gestor {
       this.actualizarVinosDeBodega()
     } else {
       bodegaAActualizar.setFechaUltimaActualizacion(new Date())
+      //@ts-expect-error
       this.pantalla.mostrarPantallaError()
     }
   }
@@ -80,6 +82,7 @@ export default class Gestor {
     )
     this.seleccionBodegas.setFechaUltimaActualizacion(new Date())
 
+    //@ts-expect-error
     this.pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
 
     this.notificarEnofilosSuscriptos() /*  ---------- EN EL DIAGRAMA DE SECUENCIA HAY UN ASTERISCO EN NOTIFICAR, HAY QUE SACAR EL ASTERISCO  Fue sacado*/

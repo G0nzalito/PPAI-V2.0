@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { renderizarPantalla } from '../app.js'
 import Bodega from './bodega.js'
 import Gestor from './gestor.js'

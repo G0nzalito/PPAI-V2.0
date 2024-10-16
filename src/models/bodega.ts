@@ -147,7 +147,9 @@ export default class Bodega {
 
       const vinoAActualizar = vinosAActualizar.find(
         v =>
-          v.esTuNombre(vino.getNombre()) /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- Esto era más complicado de lo que parece */
+          v.esTuNombre(
+            vino.getNombre()
+          ) /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- Esto era más complicado de lo que parece */
       )
 
       if (vinoAActualizar) {

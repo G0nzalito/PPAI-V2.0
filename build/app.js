@@ -1,3 +1,4 @@
+//@ts-nocheck
 import PantallaAdministradorActualizacionBonVino from './models/PantallaAdministradorActualizacionBonVino.js';
 import Gestor from './models/gestor.js';
 export function renderizarPantalla(gestor, pantalla) {

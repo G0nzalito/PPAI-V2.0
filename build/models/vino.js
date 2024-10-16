@@ -111,7 +111,7 @@ export default class Vino {
         const nombresVinosActualizar = vinosAActualizar.map(element => element.nombre);
         return nombresVinosActualizar.includes(this.nombre);
     }
-    //Esto hace falta agregarlo en el diagrama de clases y demás 
+    //Esto hace falta agregarlo en el diagrama de clases y demás
     getVarietalesAMostrar() {
         let varietalAMostrar = [];
         for (let varietal of this.getVarietal()) {
@@ -120,5 +120,8 @@ export default class Vino {
             varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`);
         }
         return varietalAMostrar;
+    }
+    esTuNombre(nombre) {
+        return this.nombre.toLowerCase() === nombre.toLowerCase();
     }
 }

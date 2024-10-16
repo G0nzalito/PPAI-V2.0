@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { renderizarPantalla } from '../app.js';
 export default class PantallaAdministradorActualizacionBonVino {
     gestor;

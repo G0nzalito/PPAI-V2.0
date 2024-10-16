@@ -175,7 +175,7 @@ export default class Vino {
     return varietalAMostrar
   }
 
-  public esTuNombre(nombre: String){
+  public esTuNombre(nombre: String) {
     return this.nombre.toLowerCase() === nombre.toLowerCase()
   }
 }

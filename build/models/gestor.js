@@ -51,6 +51,7 @@ export default class Gestor {
         }
         else {
             bodegaAActualizar.setFechaUltimaActualizacion(new Date());
+            //@ts-expect-error
             this.pantalla.mostrarPantallaError();
         }
     }
@@ -61,6 +62,7 @@ export default class Gestor {
     actualizarVinosDeBodega() {
         let vinosAMostrar = this.seleccionBodegas.actualizarVinos(this.vinosAActualizar);
         this.seleccionBodegas.setFechaUltimaActualizacion(new Date());
+        //@ts-expect-error
         this.pantalla.mostrarResumenDeActualizacion(vinosAMostrar);
         this.notificarEnofilosSuscriptos(); /*  ---------- EN EL DIAGRAMA DE SECUENCIA HAY UN ASTERISCO EN NOTIFICAR, HAY QUE SACAR EL ASTERISCO  Fue sacado*/
     }

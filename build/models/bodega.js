@@ -97,10 +97,7 @@ export default class Bodega {
             if (vino.esDeBodega(this.nombre))
                 continue; /* -------- No respeta patron experto, hay que mandarle al vino el nombre de la bodega y que el vino diga si es de esa bodega -------- Esta parte lista
                                                                           ------- Ademas hay que agregar una dependencia entre bodega y vino ------- Listo */
-            const vinoAActualizar = vinosAActualizar.find(v => v.getNombre().toLowerCase() ===
-                vino
-                    .getNombre()
-                    .toLowerCase() /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- Esto era más complicado de lo que parece */);
+            const vinoAActualizar = vinosAActualizar.find(v => v.esTuNombre(vino.getNombre()) /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- Esto era más complicado de lo que parece */);
             if (vinoAActualizar) {
                 // alternativa existe vino
                 if (!vino.sosVinoAActualizar(vinosAActualizar))
