@@ -111,4 +111,14 @@ export default class Vino {
         const nombresVinosActualizar = vinosAActualizar.map(element => element.nombre);
         return nombresVinosActualizar.includes(this.nombre);
     }
+    //Esto hace falta agregarlo en el diagrama de clases y demás 
+    getVarietalesAMostrar() {
+        let varietalAMostrar = [];
+        for (let varietal of this.getVarietal()) {
+            let nombreTipoUva = varietal.conocerTipoDeUva().getNombre();
+            let porcentaje = varietal.getPorcentajeComposicion();
+            varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`);
+        }
+        return varietalAMostrar;
+    }
 }

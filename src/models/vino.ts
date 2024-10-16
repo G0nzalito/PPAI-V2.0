@@ -162,4 +162,20 @@ export default class Vino {
     )
     return nombresVinosActualizar.includes(this.nombre)
   }
+  //Esto hace falta agregarlo en el diagrama de clases y demás
+  public getVarietalesAMostrar() {
+    let varietalAMostrar: String[] = []
+
+    for (let varietal of this.getVarietal()) {
+      let nombreTipoUva = varietal.conocerTipoDeUva().getNombre()
+      let porcentaje = varietal.getPorcentajeComposicion()
+      varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
+    }
+
+    return varietalAMostrar
+  }
+
+  public esTuNombre(nombre: String){
+    return this.nombre.toLowerCase() === nombre.toLowerCase()
+  }
 }

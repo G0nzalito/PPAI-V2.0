@@ -93,20 +93,19 @@ export default class Bodega {
         let vinosActualizados = [];
         // console.log(dataVinoEnBD[0])
         for (let i = 0; dataVinoEnBD.length > i; i++) {
-            let vino = dataVinoEnBD[i];
-            if (vino.getBodega().getNombre() !== this.nombre)
-                continue;
-            const vinoAActualizar = vinosAActualizar.find(v => v.getNombre().toLowerCase() === vino.getNombre().toLowerCase());
+            let vino = dataVinoEnBD[i]; /* ---------- Creo que en la BD no deberia haber objetos vino, bodega, etc,sino JSON, o por lo menos en las API debe haber JSON */
+            if (vino.esDeBodega(this.nombre))
+                continue; /* -------- No respeta patron experto, hay que mandarle al vino el nombre de la bodega y que el vino diga si es de esa bodega -------- Esta parte lista
+                                                                          ------- Ademas hay que agregar una dependencia entre bodega y vino ------- Listo */
+            const vinoAActualizar = vinosAActualizar.find(v => v.getNombre().toLowerCase() ===
+                vino
+                    .getNombre()
+                    .toLowerCase() /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- Esto era más complicado de lo que parece */);
             if (vinoAActualizar) {
                 // alternativa existe vino
                 if (!vino.sosVinoAActualizar(vinosAActualizar))
                     continue;
-                let varietalAMostrar = [];
-                for (let varietal of vino.getVarietal()) {
-                    let nombreTipoUva = varietal.conocerTipoDeUva().getNombre();
-                    let porcentaje = varietal.getPorcentajeComposicion();
-                    varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`);
-                }
+                let varietalAMostrar = vino.getVarietalesAMostrar();
                 vinosActualizados.push({
                     vinoAMostrar: vino,
                     estado: 'Actualizado',
@@ -116,6 +115,7 @@ export default class Bodega {
                 vino.setImagenEtiqueta(vinoAActualizar.getImagenEtiqueta());
                 vino.setFechaActualizacion(vinoAActualizar.getFechaActualizacion());
                 vino.setNotaCata(vinoAActualizar.getNotaCata());
+                console.log(this.nombre);
                 vinosAActualizar = vinosAActualizar.filter(vino => vino !== vinoAActualizar);
             }
         }
@@ -123,6 +123,8 @@ export default class Bodega {
             let vinoNuevo = this.crearVino(vinoACrear);
             let varietalAMostrar = [];
             for (let varietal of vinoNuevo.getVarietal()) {
+                /* ---------- creo que habia  problema con el diagrama de secuencia que no esta este loop o algo asi,
+              verificar que lo que aparezca en el codigo sea lo mismo del diagrama*/
                 let nombreTipoUva = varietal.conocerTipoDeUva().getNombre();
                 let porcentaje = varietal.getPorcentajeComposicion();
                 varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`);

@@ -62,7 +62,7 @@ export default class Gestor {
         let vinosAMostrar = this.seleccionBodegas.actualizarVinos(this.vinosAActualizar);
         this.seleccionBodegas.setFechaUltimaActualizacion(new Date());
         this.pantalla.mostrarResumenDeActualizacion(vinosAMostrar);
-        this.notificarEnofilosSuscriptos();
+        this.notificarEnofilosSuscriptos(); /*  ---------- EN EL DIAGRAMA DE SECUENCIA HAY UN ASTERISCO EN NOTIFICAR, HAY QUE SACAR EL ASTERISCO  Fue sacado*/
     }
     notificarEnofilosSuscriptos() {
         let nombresUsuariosANotificar = [];

@@ -377,6 +377,36 @@ export const dataVinoRemoto: Vino[] = [
       { uva: dataTipoUva[3], porcentaje: 60 }
     ],
     [dataMaridajes[4], dataMaridajes[5]]
+  ),
+  new Vino(
+    'Motañita',
+    dataBodega[3],
+    2000,
+    new Date('2024-05-27'),
+    'imagen',
+    'asd',
+    4500,
+    [dataReseñas[8], dataReseñas[1]],
+    [
+      { uva: dataTipoUva[5], porcentaje: 40 },
+      { uva: dataTipoUva[3], porcentaje: 60 }
+    ],
+    [dataMaridajes[4], dataMaridajes[5]]
+  ),
+  new Vino(
+    'Vendaval',
+    dataBodega[0],
+    30000,
+    new Date('2024-05-27'),
+    'imagen',
+    'asd',
+    4500,
+    [dataReseñas[8], dataReseñas[1]],
+    [
+      { uva: dataTipoUva[5], porcentaje: 40 },
+      { uva: dataTipoUva[3], porcentaje: 60 }
+    ],
+    [dataMaridajes[4], dataMaridajes[5]]
   )
 ]
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
