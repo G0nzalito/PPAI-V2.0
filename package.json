@@ -6,12 +6,15 @@
     "build": "npm run format && npm run compile"
   },
   "devDependencies": {
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "prettier": "^3.2.5"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.46.1",
     "bootstrap": "^5.3.3"
   },
-  "type": "module"
+  "type": "module",
+  "moduleResolution": "nodenext"
+   
 }

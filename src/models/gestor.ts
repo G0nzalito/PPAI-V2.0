@@ -5,6 +5,7 @@ import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js'
 import InterfazNotificacionPush from './interfazNotificacionPush.js'
 import InterfazSistemaDeBodega from './interfazSistemaBodega.js'
 import Vino from './vino.js'
+import supabase from '../supabase/client.js'
 
 export default class Gestor {
   coordenadasBodega: number
@@ -101,6 +102,7 @@ export default class Gestor {
       this.interfazNotificacionPush,
       this.nombreUsuariosANotificar
     )
+    console.log(supabase)
   }
 
   public generarNotificacion(
