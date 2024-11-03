@@ -136,12 +136,12 @@ export default class Bodega {
     }> = []
 
     // console.log(dataVinoEnBD[0])
-    for (let i = 0; dataVinoEnBD.length > i; i++) {
+    for (let i = 0; dataVinoEnBD.length > i; i++) {// Esto de acá deberia ser remplazado por el acceso a la BD, o para no cambiar tanto, meter un método y guardar los vinos de la BD en un array que se llame igual
       let vino =
         dataVinoEnBD[
           i
-        ] /* ---------- Creo que en la BD no deberia haber objetos vino, bodega, etc,sino JSON, o por lo menos en las API debe haber JSON */
-      if (vino.esDeBodega(this.nombre))
+        ] 
+      if (!vino.esDeBodega(this.nombre))//Toda esta condición podría irse ahora que vamos a implementar BD metiendo en vinos a actualizar solo los vinos de la bodega especifica
         continue /* -------- No respeta patron experto, hay que mandarle al vino el nombre de la bodega y que el vino diga si es de esa bodega -------- Esta parte lista
                                                                       ------- Ademas hay que agregar una dependencia entre bodega y vino ------- Listo */
 
