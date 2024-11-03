@@ -64,6 +64,8 @@ export default class Siguiendo {
         return this.amigo === amigo;
     }
     sosDeBodega(bodega) {
+        if (this.bodega === undefined)
+            return false;
         return this.bodega === bodega;
     }
 }

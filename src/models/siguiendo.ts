@@ -83,6 +83,7 @@ export default class Siguiendo {
   }
 
   public sosDeBodega(bodega: Bodega): boolean {
+    if (this.bodega === undefined) return false
     return this.bodega === bodega
   }
 }

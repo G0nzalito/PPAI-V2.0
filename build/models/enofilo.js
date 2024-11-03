@@ -49,12 +49,10 @@ export default class Enofilo {
         if (!this._seguido)
             return false;
         for (let seguido of this._seguido) {
-            const hayBodega = seguido.getBodega();
-            if (!hayBodega)
-                continue;
             if (seguido.sosDeBodega(bodega))
                 return true;
         }
+        return false;
     }
     obtenerNombreUsuario() {
         return this._usuario.mostrarNombre();
