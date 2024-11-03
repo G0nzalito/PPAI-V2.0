@@ -1,7 +1,7 @@
 import { dataBodega, dataEnofilos } from './data/data.js';
 import InterfazNotificacionPush from './interfazNotificacionPush.js';
 import InterfazSistemaDeBodega from './interfazSistemaBodega.js';
-import supabase from '../supabase/client.js';
+// import supabase from '../supabase/client.js'
 export default class Gestor {
     coordenadasBodega;
     descripcionBodega;
@@ -77,7 +77,7 @@ export default class Gestor {
         });
         this.nombreUsuariosANotificar = nombresUsuariosANotificar;
         this.generarNotificacion(this.interfazNotificacionPush, this.nombreUsuariosANotificar);
-        console.log(supabase);
+        // console.log(supabase)
     }
     generarNotificacion(InterfazNotificacionPush, nombresUsuariosANotificar) {
         this.notificacion = `Hay novedades de la bodega ${this.seleccionBodegas.getNombre()} disponibles en la app`;

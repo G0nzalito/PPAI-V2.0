@@ -1,6 +1,7 @@
 //@ts-nocheck
 import PantallaAdministradorActualizacionBonVino from './models/PantallaAdministradorActualizacionBonVino.js'
 import Gestor from './models/gestor.js'
+import supabase from './supabase/client.js'
 
 export function renderizarPantalla(
   gestor: Gestor,
@@ -26,6 +27,8 @@ function main() {
   const gestor = new Gestor()
   const pantalla = new PantallaAdministradorActualizacionBonVino()
   renderizarPantalla(gestor, pantalla)
+  console.log(supabase)
+
 }
 
 main()
