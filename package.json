@@ -14,7 +14,5 @@
     "@supabase/supabase-js": "^2.46.1",
     "bootstrap": "^5.3.3"
   },
-  "type": "module",
-  "moduleResolution": "nodenext"
-   
+  "type": "module"
 }

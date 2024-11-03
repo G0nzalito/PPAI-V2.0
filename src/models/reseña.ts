@@ -1,4 +1,4 @@
-import Vino from './vino'
+import Vino from './vino.js'
 
 export default class Reseña {
   private comentario: string
