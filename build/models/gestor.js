@@ -1,7 +1,8 @@
-import { dataBodega, dataEnofilos } from './data/data.js';
+import { dataBodega, dataEnofilos, dataTipoUva } from './data/data.js';
 import InterfazNotificacionPush from './interfazNotificacionPush.js';
 import InterfazSistemaDeBodega from './interfazSistemaBodega.js';
 // import supabase from '../supabase/client.js'
+import interfazBD from './interfazBD.js';
 export default class Gestor {
     coordenadasBodega;
     descripcionBodega;
@@ -13,6 +14,7 @@ export default class Gestor {
     pantalla;
     interfazNotificacionPush;
     interfazSistemaDeBodega;
+    interfazBDVinos;
     nombreUsuariosANotificar;
     notificacion;
     constructor() {
@@ -24,12 +26,12 @@ export default class Gestor {
         this.interfazSistemaDeBodega = new InterfazSistemaDeBodega();
         this.nombreUsuariosANotificar = [];
         this.notificacion = '';
+        this.interfazBDVinos = interfazBD.getInstancia();
     }
     opcionImportarActualizacion(pantalla) {
         this.getFechaActual();
         this.pantalla = pantalla;
         this.bodegasAActualizar = this.buscarBodegasConActualizacion(this.fechaActual);
-        pantalla.mostrarBodegasConActualizacion(this.bodegasAActualizar);
     }
     buscarBodegasConActualizacion(fechaActual) {
         let bodegasAActualizar = [];
@@ -41,8 +43,13 @@ export default class Gestor {
         return bodegasAActualizar;
     }
     getFechaActual() {
+        console.log(dataTipoUva);
         var fechaActual = new Date();
         this.fechaActual = fechaActual;
+        this.interfazBDVinos.recuperarTiposUVas(2).then(data => {
+            console.log(dataTipoUva);
+        });
+        //console.log(dataTipoUva)
     }
     tomarSeleccionBodega(bodegaAActualizar) {
         this.seleccionBodegas = bodegaAActualizar;

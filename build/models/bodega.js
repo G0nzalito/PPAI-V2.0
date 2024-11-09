@@ -61,7 +61,7 @@ export default class Bodega {
         let maridaje = this.buscarMaridaje(vinoACrear);
         let tiposUvas = this.buscarTipoUva(vinoACrear);
         // let a = vinoACrear.getAñada()
-        let vinoNuevo = new Vino(vinoACrear.getNombre(), this, vinoACrear.getAñada(), new Date(), vinoACrear.getImagenEtiqueta(), vinoACrear.getNotaCata(), vinoACrear.getPrecio(), vinoACrear.getReseña(), tiposUvas, maridaje);
+        let vinoNuevo = new Vino(vinoACrear.getNombre(), this, vinoACrear.getAñada(), new Date(), vinoACrear.getImagenEtiqueta(), vinoACrear.getNotaCata(), vinoACrear.getPrecio(), vinoACrear.getReseña(), maridaje, tiposUvas);
         return vinoNuevo;
     }
     buscarMaridaje(vinoACrear) {

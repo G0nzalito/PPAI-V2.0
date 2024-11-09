@@ -25,8 +25,9 @@ export default class Vino {
     notaDeCataBodega: string,
     precioARS: number,
     reseña: Array<Reseña>,
-    tiposUvas: Array<{ uva: TipoUva; porcentaje: number }>,
-    maridaje: Array<Maridaje>
+    maridaje: Array<Maridaje>,
+    tiposUvas?: Array<{ uva: TipoUva; porcentaje: number }>,
+    varietal?: Array<Varietal>
   ) {
     this.nombre = nombre
     this.fechaActualizacion = fechaActualizacion
@@ -36,8 +37,12 @@ export default class Vino {
     this.precioARS = precioARS
     this.reseña = reseña
     this.bodega = bodega
-    this.varietal = this.crearVarietal(tiposUvas)
     this.maridaje = maridaje
+    if (tiposUvas) {
+      this.varietal = this.crearVarietal(tiposUvas)
+    } else {
+      this.varietal = varietal
+    }
   }
   public crearVarietal(
     listaTiposUvas: Array<{ uva: TipoUva; porcentaje: number }>

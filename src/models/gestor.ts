@@ -1,11 +1,17 @@
 //@ts-nocheck
 import PantallaAdministradorActualizacionBonVino from './PantallaAdministradorActualizacionBonVino.js'
 import Bodega from './bodega.js'
-import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js'
+import {
+  dataBodega,
+  dataEnofilos,
+  dataTipoUva,
+  dataVinoRemoto
+} from './data/data.js'
 import InterfazNotificacionPush from './interfazNotificacionPush.js'
 import InterfazSistemaDeBodega from './interfazSistemaBodega.js'
 import Vino from './vino.js'
 // import supabase from '../supabase/client.js'
+import interfazBD from './interfazBD.js'
 
 export default class Gestor {
   coordenadasBodega: number
@@ -18,6 +24,7 @@ export default class Gestor {
   pantalla: PantallaAdministradorActualizacionBonVino | undefined
   interfazNotificacionPush: InterfazNotificacionPush
   interfazSistemaDeBodega: InterfazSistemaDeBodega
+  interfazBDVinos: interfazBD
   nombreUsuariosANotificar: String[]
   notificacion: String
 
@@ -30,6 +37,7 @@ export default class Gestor {
     this.interfazSistemaDeBodega = new InterfazSistemaDeBodega()
     this.nombreUsuariosANotificar = []
     this.notificacion = ''
+    this.interfazBDVinos = interfazBD.getInstancia()
   }
 
   public opcionImportarActualizacion(
@@ -40,8 +48,6 @@ export default class Gestor {
     this.bodegasAActualizar = this.buscarBodegasConActualizacion(
       this.fechaActual
     )
-
-    pantalla.mostrarBodegasConActualizacion(this.bodegasAActualizar)
   }
 
   private buscarBodegasConActualizacion(fechaActual: Date) {
@@ -55,8 +61,13 @@ export default class Gestor {
   }
 
   private getFechaActual() {
+    console.log(dataTipoUva)
     var fechaActual = new Date()
     this.fechaActual = fechaActual
+    this.interfazBDVinos.recuperarTiposUVas(2).then(data => {
+      console.log(dataTipoUva)
+    })
+    //console.log(dataTipoUva)
   }
 
   public tomarSeleccionBodega(bodegaAActualizar: Bodega) {

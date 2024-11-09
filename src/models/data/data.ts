@@ -166,6 +166,53 @@ export const dataReseñas = [
     new Date(),
     3,
     undefined
+  ),
+  new Reseña(
+    'Excelente vino, perfecto para una ocasión especial',
+    true,
+    new Date(),
+    5,
+    undefined
+  ),
+  
+  new Reseña(
+    'No está mal, pero esperaba algo mejor por el precio',
+    false,
+    new Date(),
+    2,
+    undefined
+  ),
+  //cargo hasta acá
+  
+  new Reseña(
+    'Sabor suave y muy agradable, lo recomiendo',
+    true,
+    new Date(),
+    4,
+    undefined
+  ),
+  
+  new Reseña(
+    'Muy básico, no destaca en nada',
+    false,
+    new Date(),
+    1,
+    undefined
+  ),
+  
+  new Reseña(
+    'Sorprendentemente bueno, tiene una gran relación calidad-precio',
+    true,
+    new Date(),
+    4,
+    undefined
+  ),
+  new Reseña(
+    'Sorprendentemente malo, tiene una pésima relación calidad-precio',
+    true,
+    new Date(),
+    1,
+    undefined
   )
 ]
 
@@ -202,12 +249,12 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1000,
-    [dataReseñas[0], dataReseñas[1]],
+    [dataReseñas[0]],
+    [dataMaridajes[1], dataMaridajes[2]],
     [
       { uva: dataTipoUva[3], porcentaje: 80 },
       { uva: dataTipoUva[0], porcentaje: 20 }
-    ],
-    [dataMaridajes[1], dataMaridajes[2]]
+    ]
   ),
   new Vino(
     'Otro loco mas2',
@@ -218,8 +265,8 @@ export const dataVinoEnBD: Vino[] = [
     'asd',
     1100,
     [dataReseñas[1], dataReseñas[2]],
-    [{ uva: dataTipoUva[1], porcentaje: 80 }],
-    [dataMaridajes[0], dataMaridajes[2]]
+    [dataMaridajes[0], dataMaridajes[2]],
+    [{ uva: dataTipoUva[1], porcentaje: 80 }]
   ),
   new Vino(
     'Otro loco mas3',
@@ -229,9 +276,9 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1000,
-    [dataReseñas[2], dataReseñas[3]],
-    [{ uva: dataTipoUva[2], porcentaje: 80 }],
-    [dataMaridajes[1], dataMaridajes[2]]
+    [dataReseñas[3]],
+    [dataMaridajes[1], dataMaridajes[2]],
+    [{ uva: dataTipoUva[2], porcentaje: 80 }]
   ),
   new Vino(
     'Otro loco mas4',
@@ -241,9 +288,9 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1000,
-    [dataReseñas[3], dataReseñas[0]],
-    [{ uva: dataTipoUva[0], porcentaje: 80 }],
-    [dataMaridajes[1], dataMaridajes[2]]
+    [dataReseñas[4], dataReseñas[5]],
+    [dataMaridajes[1], dataMaridajes[2]],
+    [{ uva: dataTipoUva[0], porcentaje: 80 }]
   ),
 
   new Vino(
@@ -254,12 +301,12 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1450,
-    [dataReseñas[8], dataReseñas[0]],
+    [dataReseñas[6]],
+    [dataMaridajes[4], dataMaridajes[5]],
     [
       { uva: dataTipoUva[5], porcentaje: 40 },
       { uva: dataTipoUva[3], porcentaje: 60 }
-    ],
-    [dataMaridajes[4], dataMaridajes[5]]
+    ]
   ),
   new Vino(
     'Portuguesa',
@@ -269,9 +316,9 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1500,
-    [dataReseñas[8], dataReseñas[5]],
-    [{ uva: dataTipoUva[5], porcentaje: 80 }],
-    [dataMaridajes[5], dataMaridajes[3]]
+    [dataReseñas[7], dataReseñas[8]],
+    [dataMaridajes[5], dataMaridajes[3]],
+    [{ uva: dataTipoUva[5], porcentaje: 80 }]
   ),
   new Vino(
     'Josefa',
@@ -281,12 +328,12 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1050,
-    [dataReseñas[7], dataReseñas[4]],
+    [dataReseñas[9]],
+    [dataMaridajes[5], dataMaridajes[4]],
     [
       { uva: dataTipoUva[4], porcentaje: 70 },
       { uva: dataTipoUva[5], porcentaje: 30 }
-    ],
-    [dataMaridajes[5], dataMaridajes[5]]
+    ]
   ),
   new Vino(
     'Delirio',
@@ -296,24 +343,15 @@ export const dataVinoEnBD: Vino[] = [
     'imagen',
     'asd',
     1300,
-    [dataReseñas[6], dataReseñas[2]],
-    [{ uva: dataTipoUva[5], porcentaje: 80 }],
-    [dataMaridajes[4], dataMaridajes[2]]
+    [dataReseñas[10]],
+    [dataMaridajes[4], dataMaridajes[2]],
+    [{ uva: dataTipoUva[5], porcentaje: 80 }]
   )
 ]
-dataReseñas[0].setVino(dataVinoEnBD[0])
-dataReseñas[1].setVino(dataVinoEnBD[0])
-dataReseñas[2].setVino(dataVinoEnBD[1])
-dataReseñas[3].setVino(dataVinoEnBD[2])
-dataReseñas[4].setVino(dataVinoEnBD[6])
-dataReseñas[5].setVino(dataVinoEnBD[5])
-dataReseñas[6].setVino(dataVinoEnBD[7])
-dataReseñas[7].setVino(dataVinoEnBD[6])
-dataReseñas[8].setVino(dataVinoEnBD[5])
 
 export const dataVinoRemoto: Vino[] = [
   new Vino(
-    'Otro loco mas2',
+    'Otro loco mas 2',
     dataBodega[1],
     2006,
     new Date('2024-07-20'),
@@ -321,11 +359,11 @@ export const dataVinoRemoto: Vino[] = [
     'En nariz despliega aromas de buena intensidad, con toques de frutos rojos conjugados con notas de madera, debido a su crianza.',
     7200,
     [dataReseñas[1], dataReseñas[2]],
+    [dataMaridajes[0], dataMaridajes[2]],
     [
       { uva: dataTipoUva[1], porcentaje: 70 },
       { uva: dataTipoUva[2], porcentaje: 10 }
-    ],
-    [dataMaridajes[0], dataMaridajes[2]]
+    ]
   ),
   new Vino(
     'Cabernet Locura',
@@ -335,9 +373,9 @@ export const dataVinoRemoto: Vino[] = [
     'imagenNueva.jpg',
     'Se presenta sabroso y de tacto muy agradable.',
     7200,
-    [dataReseñas[1], dataReseñas[2]],
-    [{ uva: dataTipoUva[1], porcentaje: 80 }],
-    [dataMaridajes[0], dataMaridajes[2]]
+    [dataReseñas[11]],
+    [dataMaridajes[0], dataMaridajes[2]],
+    [{ uva: dataTipoUva[1], porcentaje: 80 }]
   ),
   new Vino(
     'El hombre en moto',
@@ -347,21 +385,21 @@ export const dataVinoRemoto: Vino[] = [
     'imagenMoto.jpg',
     'Taninos maduros y dulces, buena acidez y sensaciones frutales bien ligadas con las notas de su justa estancia en madera.',
     7200,
-    [dataReseñas[1], dataReseñas[2]],
-    [{ uva: dataTipoUva[1], porcentaje: 80 }],
-    [dataMaridajes[0], dataMaridajes[2]]
+    [dataReseñas[12]],
+    [dataMaridajes[0], dataMaridajes[2]],
+    [{ uva: dataTipoUva[1], porcentaje: 80 }]
   ),
   new Vino(
-    'Otro loco mas3',
+    'Otro loco mas 3',
     dataBodega[2],
     2006,
     new Date('2024-07-20'),
     'imagenLoco.png',
     'Su paso se encuentra un balance de fruta-madera muy equilibrado, marcado por los especiados del roble francés y los frutillos rojos de la uva.',
     7200,
-    [dataReseñas[1], dataReseñas[2]],
-    [{ uva: dataTipoUva[1], porcentaje: 80 }],
-    [dataMaridajes[0], dataMaridajes[2]]
+    [dataReseñas[3]],
+    [dataMaridajes[0], dataMaridajes[2]],
+    [{ uva: dataTipoUva[1], porcentaje: 80 }]
   ),
   new Vino(
     'Montañoso',
@@ -371,12 +409,12 @@ export const dataVinoRemoto: Vino[] = [
     'imagen',
     'asd',
     4500,
-    [dataReseñas[8], dataReseñas[1]],
+    [dataReseñas[6]],
+    [dataMaridajes[4], dataMaridajes[5]],
     [
       { uva: dataTipoUva[5], porcentaje: 40 },
       { uva: dataTipoUva[3], porcentaje: 60 }
-    ],
-    [dataMaridajes[4], dataMaridajes[5]]
+    ]
   ),
   new Vino(
     'Motañita',
@@ -386,12 +424,12 @@ export const dataVinoRemoto: Vino[] = [
     'imagen',
     'asd',
     4500,
-    [dataReseñas[8], dataReseñas[1]],
+    [dataReseñas[13]],
+    [dataMaridajes[4], dataMaridajes[5]],
     [
       { uva: dataTipoUva[5], porcentaje: 40 },
       { uva: dataTipoUva[3], porcentaje: 60 }
-    ],
-    [dataMaridajes[4], dataMaridajes[5]]
+    ]
   ),
   new Vino(
     'Vendaval',
@@ -401,12 +439,12 @@ export const dataVinoRemoto: Vino[] = [
     'imagen',
     'asd',
     4500,
-    [dataReseñas[8], dataReseñas[1]],
+    [dataReseñas[14]],
+    [dataMaridajes[4], dataMaridajes[5]],
     [
       { uva: dataTipoUva[5], porcentaje: 40 },
       { uva: dataTipoUva[3], porcentaje: 60 }
-    ],
-    [dataMaridajes[4], dataMaridajes[5]]
+    ]
   )
 ]
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
