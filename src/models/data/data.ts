@@ -174,7 +174,7 @@ export const dataReseñas = [
     5,
     undefined
   ),
-  
+
   new Reseña(
     'No está mal, pero esperaba algo mejor por el precio',
     false,
@@ -183,7 +183,7 @@ export const dataReseñas = [
     undefined
   ),
   //cargo hasta acá
-  
+
   new Reseña(
     'Sabor suave y muy agradable, lo recomiendo',
     true,
@@ -191,15 +191,9 @@ export const dataReseñas = [
     4,
     undefined
   ),
-  
-  new Reseña(
-    'Muy básico, no destaca en nada',
-    false,
-    new Date(),
-    1,
-    undefined
-  ),
-  
+
+  new Reseña('Muy básico, no destaca en nada', false, new Date(), 1, undefined),
+
   new Reseña(
     'Sorprendentemente bueno, tiene una gran relación calidad-precio',
     true,

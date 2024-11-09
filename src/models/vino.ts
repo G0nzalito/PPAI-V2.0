@@ -41,7 +41,7 @@ export default class Vino {
     if (tiposUvas) {
       this.varietal = this.crearVarietal(tiposUvas)
     } else {
-      this.varietal = varietal
+      this.varietal = varietal as Varietal[]
     }
   }
   public crearVarietal(
