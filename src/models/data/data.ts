@@ -7,6 +7,7 @@ import Enofilo from '../enofilo.js'
 import Usuario from '../usuario.js'
 import Maridaje from '../maridaje.js'
 import Vino from '../vino.js'
+import supabase from '../../supabase/client.js'
 
 export const dataUsuarios = [
   new Usuario('1111', 'Gonzalo', true, '-'),
@@ -310,6 +311,41 @@ dataReseñas[5].setVino(dataVinoEnBD[5])
 dataReseñas[6].setVino(dataVinoEnBD[7])
 dataReseñas[7].setVino(dataVinoEnBD[6])
 dataReseñas[8].setVino(dataVinoEnBD[5])
+
+//Devuelve true si el vino ya se encuentra en la base de datos
+export const estaVinoEnBD = async (vino: Vino[], vinoBD: Vino[]) => {
+  for (let i = 0; i < vino.length; i++) {
+    let banderaEncontrado = false; // Reiniciar la bandera en cada iteración del primer bucle
+    for (let j = 0; j < vinoBD.length; j++) { // Cambiar `j <= vinoBD.length` por `j < vinoBD.length`
+      if (vino[i].getNombre() === vinoBD[j].getNombre()) {
+        // Es el mismo vino, verificar la bodega
+        banderaEncontrado = true;
+        if (vino[i].getBodega().getNombre().toLowerCase() !== vinoBD[j].getBodega().getNombre().toLowerCase()) {
+          // Actualizar la bodega si es diferente 
+          const{ data, error } = await supabase
+          .from('vino')
+          .insert({ id:1, Bodega: vino[i].getBodega().getNombre() })
+        }
+        if (vino[i].getImagenEtiqueta() !== vinoBD[j].getImagenEtiqueta()) {  
+          vinoBD[j].setImagenEtiqueta(vino[i].getImagenEtiqueta());
+        }
+        if (vino[i].getPrecio() !== vinoBD[j].getPrecio()) {  
+          vinoBD[j].setPrecio(vino[i].getPrecio());
+        }
+        //Espero que fechaActualizacion tenga adentro formato fecha! 
+        vinoBD[j].setFechaActualizacion(new Date());
+
+        break; // Salir del bucle interno si ya encontramos el vino
+      }
+    }
+    
+    if (!banderaEncontrado) {
+      // Si no se encontró el vino en la base de datos, agregarlo
+      vinoBD.push(vino[i]);
+    }
+  }
+};
+
 
 export const dataVinoRemoto: Vino[] = [
   new Vino(

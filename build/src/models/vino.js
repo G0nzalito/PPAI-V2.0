@@ -1,7 +1,7 @@
 import Varietal from './varietal.js';
 export default class Vino {
     añada;
-    nombre;
+     nombre;
     fechaActualizacion;
     imagenEtiqueta;
     notaDeCataBodega;
