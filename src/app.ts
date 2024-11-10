@@ -28,7 +28,6 @@ function main() {
   const pantalla = new PantallaAdministradorActualizacionBonVino()
   renderizarPantalla(gestor, pantalla)
   console.log(supabase)
-
 }
 
 main()

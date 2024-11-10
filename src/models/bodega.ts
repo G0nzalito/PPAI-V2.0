@@ -91,8 +91,8 @@ export default class Bodega {
       vinoACrear.getNotaCata(),
       vinoACrear.getPrecio(),
       vinoACrear.getReseña(),
-      tiposUvas,
-      maridaje
+      maridaje,
+      tiposUvas
     )
     return vinoNuevo
   }

@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 // Configura el cliente de Supabase
 const supabaseUrl = 'https://jsftpkuvepxoovwnwmtd.supabase.co';

@@ -10,7 +10,7 @@ export default class Vino {
     bodega;
     varietal;
     maridaje;
-    constructor(nombre, bodega, añada, fechaActualizacion, imagenEtiqueta, notaDeCataBodega, precioARS, reseña, tiposUvas, maridaje) {
+    constructor(nombre, bodega, añada, fechaActualizacion, imagenEtiqueta, notaDeCataBodega, precioARS, reseña, maridaje, tiposUvas, varietal) {
         this.nombre = nombre;
         this.fechaActualizacion = fechaActualizacion;
         this.añada = añada;
@@ -19,8 +19,13 @@ export default class Vino {
         this.precioARS = precioARS;
         this.reseña = reseña;
         this.bodega = bodega;
-        this.varietal = this.crearVarietal(tiposUvas);
         this.maridaje = maridaje;
+        if (tiposUvas) {
+            this.varietal = this.crearVarietal(tiposUvas);
+        }
+        else {
+            this.varietal = varietal;
+        }
     }
     crearVarietal(listaTiposUvas) {
         let varietales = [];
